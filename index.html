@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Ventura Home Worth? | Sean San Jose</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a2e;
+    background: #f8f9fa;
+    line-height: 1.6;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') no-repeat bottom;
+    background-size: cover;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 span {
+    color: #e94560;
+  }
+
+  .hero p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 12px;
+    font-weight: 400;
+  }
+
+  /* ===== FORM SECTION ===== */
+  .form-section {
+    max-width: 520px;
+    margin: -40px auto 0;
+    padding: 0 20px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .form-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+
+  .form-card .form-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fafafa;
+    color: #333;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #0f3460;
+    box-shadow: 0 0 0 3px rgba(15,52,96,0.1);
+    background: white;
+  }
+
+  .form-group input::placeholder {
+    color: #aaa;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #e94560;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+  }
+
+  .submit-btn:hover {
+    background: #d63a55;
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .instant-estimate {
+    margin-top: 24px;
+    border: 1px solid #e6e9ef;
+    border-radius: 14px;
+    padding: 20px 18px;
+    background: #f9fbff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .instant-estimate.loading {
+    opacity: 0.8;
+  }
+
+  .instant-estimate.error {
+    border-color: #f7c2c7;
+    background: #fff5f6;
+  }
+
+  .instant-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .instant-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0f3460;
+  }
+
+  .instant-status {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  .estimate-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f3460;
+    margin-bottom: 8px;
+  }
+
+  .estimate-context,
+  .estimate-market,
+  .estimate-disclaimer {
+    font-size: 13px;
+    color: #4b5563;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .estimate-disclaimer {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  .estimate-cta {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: none;
+    background: #e94560;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .estimate-cta:hover { background: #d63a55; }
+  .estimate-cta:active { transform: translateY(1px); }
+
+  .instant-estimate .muted {
+    color: #94a3b8;
+  }
+
+  .form-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .form-footer img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+
+  .consent-block {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #f9f9f9;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .consent-block label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  .consent-block input[type="checkbox"] {
+    margin-top: 3px;
+  }
+
+  .consent-block a {
+    color: #0f3460;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .consent-block a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== TRUST SECTION ===== */
+  .trust-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    text-align: center;
+  }
+
+  .trust-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 30px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .stat {
+    padding: 24px 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .stat .number {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0f3460;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat .label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .testimonials h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .testimonial {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .testimonial .stars {
+    color: #f4b400;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .testimonial p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .testimonial .author {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* ===== ABOUT SECTION ===== */
+  /* ===== VIDEO SECTION ===== */
+  .video-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    text-align: center;
+  }
+
+  .video-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 24px;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-section {
+    background: #1a1a2e;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-section h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .about-section p {
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .about-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: #e94560;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+
+  .about-cta:hover { background: #d63a55; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 32px 20px 24px;
+    font-size: 12px;
+    color: #999;
+    background: #f0f0f0;
+    border-top: 1px solid #e0e0e0;
+    line-height: 1.7;
+  }
+
+  .footer-compliance {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logos img.exp-logo {
+    width: 110px;
+    height: auto;
+  }
+
+  .eho-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #777;
+  }
+
+  .eho-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-agent,
+  .footer-brokerage,
+  .footer-disclaimer,
+  .footer-fairhousing,
+  .footer-contact {
+    margin-bottom: 4px;
+  }
+
+  .footer-agent { font-weight: 600; color: #777; }
+  .footer-brokerage { color: #999; }
+  .footer-disclaimer { color: #aaa; font-style: italic; }
+  .footer-fairhousing { color: #aaa; font-size: 11px; }
+  .footer-contact a { color: #888; text-decoration: none; }
+  .footer-contact a:hover { text-decoration: underline; }
+  .footer-links {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #777;
+  }
+  .footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .footer-links a:hover {
+  .footer-notice {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.6;
+  }
+  .footer-notice a {
+    color: #666;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+    text-decoration: underline;
+  }
+
+  /* ===== SUCCESS STATE ===== */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-success .checkmark {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .form-success h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+  }
+
+  .form-success p {
+    font-size: 16px;
+    color: #666;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 60px; }
+    .form-card { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2387076515145406');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Ventura Home Valuation',
+    content_category: 'Landing Page',
+    content_ids: ['ventura'],
+  });
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2387076515145406&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18028421618"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18028421618');
+  gtag('config', 'GT-MQXLR3Q9');
+</script>
+
+</head>
+<body data-default-city="Ventura" data-default-state="CA" data-default-zip="93001">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏠 Free Home Valuation — Ventura County</div>
+    <h1>What's Your Ventura Home <span>Really Worth?</span></h1>
+    <p>Get a free, no-obligation home valuation from a Ventura expert with <strong>144 homes sold</strong> and <strong>16 years</strong> of local experience.</p>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-section">
+  <div class="form-card">
+    <h2>Get Your Free Home Value</h2>
+    <p class="form-subtitle">Takes 30 seconds. No spam. No obligation.</p>
+
+    <form id="valuationForm" onsubmit="return submitForm(event)">
+      <div class="form-group">
+        <label for="address">Property Address *</label>
+        <input type="text" id="address" name="address" placeholder="123 Main St, Ventura, CA 93001" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Sean" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" placeholder="San Jose" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone *</label>
+        <input type="tel" id="phone" name="phone" placeholder="(805) 555-1234" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="timeline">When do you want to sell?</label>
+          <select id="timeline" name="timeline">
+            <option value="">Select...</option>
+            <option value="ASAP">ASAP</option>
+            <option value="1-3 Months">1-3 Months</option>
+            <option value="3-6 Months">3-6 Months</option>
+            <option value="6-12 Months">6-12 Months</option>
+            <option value="Just Curious">Just Curious</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="propertyType">Property Type</label>
+          <select id="propertyType" name="propertyType">
+            <option value="">Select...</option>
+            <option value="Single Family">Single Family</option>
+            <option value="Condo/Townhome">Condo/Townhome</option>
+            <option value="Multi-Family">Multi-Family</option>
+            <option value="Land/Lot">Land/Lot</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Hidden UTM fields for GHL tracking -->
+      <input type="hidden" id="utm_source" name="utm_source">
+      <input type="hidden" id="utm_medium" name="utm_medium">
+      <input type="hidden" id="utm_campaign" name="utm_campaign">
+      <input type="hidden" id="utm_content" name="utm_content">
+      <input type="hidden" id="utm_term" name="utm_term">
+
+      <div class="consent-block">
+        <label>
+          <input type="checkbox" name="sms_consent" id="sms_consent">
+          <span>I agree to receive SMS messages from Sean San Jose Real Estate. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/privacy-policy" target="_blank">Privacy Policy</a> | <a href="/terms" target="_blank">Terms of Service</a></span>
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        Get My Free Home Value →
+      </button>
+
+      <div class="instant-estimate" id="instantEstimate" aria-live="polite">
+        <div class="instant-header">
+          <span class="instant-label">Instant Estimate (beta)</span>
+          <span class="instant-status" id="estimateStatus">Enter a full property address to preview your value.</span>
+        </div>
+        <div class="estimate-value" id="estimateValue">—</div>
+        <p class="estimate-context" id="estimateContext">
+          Based on current market data, your home at <strong id="estimateAddress" class="muted">(address pending)</strong> is estimated at: <strong id="estimateValueText">—</strong>
+        </p>
+        <p class="estimate-market" id="estimateMarket">
+          Homes like yours in <span id="estimateCity">Ventura</span> usually close within ±3% of their instant estimate.
+        </p>
+        <button type="button" class="estimate-cta" id="estimateCtaBtn">Get your full CMA →</button>
+        <p class="estimate-disclaimer">
+          Get your full personalized CMA from Sean San Jose for an accurate professional valuation backed by on-the-ground expertise.
+        </p>
+      </div>
+
+      <div class="form-footer">
+        🔒 Your info is 100% confidential. We'll never share or sell your data.
+      </div>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="checkmark">✅</div>
+      <h2>You're All Set!</h2>
+      <p>Sean will reach out within 24 hours with your personalized home valuation. In the meantime, feel free to call <strong>(805) 206-6363</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STATS -->
+<div class="trust-section">
+  <h3>Why Homeowners Trust Sean</h3>
+  <div class="stats">
+    <div class="stat">
+      <div class="number">144</div>
+      <div class="label">Homes Sold</div>
+    </div>
+    <div class="stat">
+      <div class="number">16</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="number">5.0 ★</div>
+      <div class="label">Zillow Rating</div>
+    </div>
+    <div class="stat">
+      <div class="number">14</div>
+      <div class="label">Areas Served</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+  <h3>What Clients Say</h3>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Sean is such a helpful and honest realtor! He is all about his clients and making sure they get what they want. He found me my first home and guided me through it all."</p>
+      <div class="author">— Kelly S., Thousand Oaks</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Sean was very knowledgeable yet humble. He always kept us informed on the next process and length of time frame. He is highly reliable. We highly recommend Sean."</p>
+      <div class="author">— Karen H., Thousand Oaks</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Sean really took care of us! This was our first home purchase so we really needed all the help we could get. Sean was patient, understanding, and just about the nicest guy."</p>
+      <div class="author">— Jeremy C., Simi Valley</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video-section">
+  <h3>See Why Clients Love Working With Sean</h3>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/3oXBtCdVeE4" title="Top Realtor Sean San Jose" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section">
+  <div class="about-content">
+    <h3>Meet Sean San Jose</h3>
+    <p>With 16 years of experience and 144 homes sold across Ventura and Santa Barbara counties, Sean brings deep local knowledge and a marketing background to every transaction.</p>
+    <p>Fluent in English and Spanish, Sean serves Ventura and the surrounding communities of Oxnard, Camarillo, Thousand Oaks, Simi Valley, and Moorpark.</p>
+    <a href="tel:+18052066363" class="about-cta">Call Sean: (805) 206-6363</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-compliance">
+    <div class="footer-logos">
+      <img src="/exp-realty-logo.png" alt="eXp Realty" class="exp-logo">
+      <div class="eho-badge">
+        <svg class="eho-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="#777">
+          <rect x="4" y="18" width="32" height="18" rx="1" stroke="#777" stroke-width="1.5" fill="none"/>
+          <polygon points="20,4 4,18 36,18" stroke="#777" stroke-width="1.5" fill="none"/>
+          <rect x="16" y="26" width="8" height="10" stroke="#777" stroke-width="1.2" fill="none"/>
+          <text x="20" y="42" font-size="3" text-anchor="middle" font-family="Inter,sans-serif" fill="#777">EQUAL HOUSING</text>
+        </svg>
+        Equal Housing<br>Opportunity
+      </div>
+    </div>
+    <div class="footer-agent">Sean San Jose | DRE #01884586</div>
+    <div class="footer-brokerage">eXp Realty of California, Inc. | DRE #01878277</div>
+    <div class="footer-disclaimer">Each office is independently owned and operated.</div>
+    <div class="footer-fairhousing">We are committed to the principles of the Fair Housing Act.</div>
+    <div class="footer-contact" style="margin-top: 8px;">
+      © 2026 Sean San Jose Real Estate — <a href="tel:+18052066363">(805) 206-6363</a> | <a href="mailto:info@seansanjose.com">info@seansanjose.com</a>
+    </div>
+    
+    <div class="footer-notice">This site uses cookies and similar technologies for advertising purposes. California residents may opt out of the sale of personal information. See our <a href="/privacy-policy">Privacy Policy</a>.</div>
+    <div class="footer-links">
+      <a href='/privacy-policy'>Privacy Policy</a> | <a href='/terms'>Terms of Service</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const pageParams = new URLSearchParams(window.location.search);
+
+// Populate UTM hidden fields from URL params on page load
+(function() {
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(key) {
+    var val = pageParams.get(key);
+    if (val) {
+      var el = document.getElementById(key);
+      if (el) el.value = val;
+    }
+  });
+})();
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  // Fire Facebook Pixel Lead event
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: 'Home Valuation Request',
+      content_category: 'Seller Lead',
+      value: 20.00,
+      currency: 'USD'
+    });
+  }
+
+  const data = {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    address: document.getElementById('address').value,
+    timeline: document.getElementById('timeline').value,
+    propertyType: document.getElementById('propertyType').value,
+    source: 'Landing Page - Ventura',
+    utm_source: document.getElementById('utm_source').value,
+    utm_medium: document.getElementById('utm_medium').value,
+    utm_campaign: document.getElementById('utm_campaign').value,
+    utm_content: document.getElementById('utm_content').value,
+    utm_term: document.getElementById('utm_term').value
+  };
+
+  // ── Lead Capture: Send to GHL via mission-control ──
+  // Primary: mission-control proxy → GHL API
+  // Backup: /submit (local Netlify function)
+  const LEAD_ENDPOINT = 'https://mission-control-production-256d.up.railway.app/api/lead-capture';
+
+  // Always show success to the user — we log failures server-side for recovery
+  document.getElementById('valuationForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+
+  // Fire-and-forget lead capture (don't block UX)
+  try {
+    const resp = await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!resp.ok) throw new Error('Mission control returned ' + resp.status);
+    console.log('✅ Lead sent to GHL successfully');
+  } catch (mcErr) {
+    console.warn('Mission control failed, trying /submit fallback:', mcErr.message);
+    // Fallback to local Netlify function
+    try {
+      await fetch('/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (fbErr) {
+      console.error('Both endpoints failed. Lead data:', JSON.stringify(data));
+    }
+  }
+}
+
+// ── Instant Estimate Logic ─────────────────────────────
+const addressInput = document.getElementById('address');
+const estimateSection = document.getElementById('instantEstimate');
+const estimateStatusEl = document.getElementById('estimateStatus');
+const estimateValueEl = document.getElementById('estimateValue');
+const estimateValueTextEl = document.getElementById('estimateValueText');
+const estimateAddressEl = document.getElementById('estimateAddress');
+const estimateCityEl = document.getElementById('estimateCity');
+const estimateMarketEl = document.getElementById('estimateMarket');
+const estimateCtaBtn = document.getElementById('estimateCtaBtn');
+const formEl = document.getElementById('valuationForm');
+
+const pageDefaults = {
+  city: document.body.dataset.defaultCity || 'Ventura',
+  state: document.body.dataset.defaultState || 'CA',
+  zip: document.body.dataset.defaultZip || ''
+};
+
+let lookupTimer = null;
+let activeLookup = null;
+let lastResultAddress = '';
+
+function setEstimateIdle() {
+  estimateSection.classList.remove('loading', 'error');
+  estimateStatusEl.textContent = 'Enter a full property address to preview your value.';
+  estimateValueEl.textContent = '—';
+  estimateValueTextEl.textContent = '—';
+  estimateAddressEl.textContent = '(address pending)';
+  estimateAddressEl.classList.add('muted');
+  const city = pageDefaults.city || 'your area';
+  estimateCityEl.textContent = city;
+  estimateMarketEl.textContent = `Homes like yours in ${city} typically sell within ±3% of this estimate.`;
+}
+
+function setEstimateLoading(parsedAddress) {
+  estimateSection.classList.add('loading');
+  estimateSection.classList.remove('error');
+  estimateStatusEl.textContent = 'Looking up the latest data...';
+  estimateAddressEl.textContent = parsedAddress.fullText;
+  estimateAddressEl.classList.remove('muted');
+  estimateCityEl.textContent = parsedAddress.city || pageDefaults.city || 'your area';
+}
+
+function formatCurrency(value) {
+  if (!value || Number(value) <= 0) return '—';
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Number(value));
+}
+
+function normalizeAddress(address) {
+  return (address || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function parseAddress(rawAddress) {
+  const address = rawAddress || '';
+  const result = { address: '', city: '', state: '', zip: '', fullText: address.trim() };
+  if (!address.trim()) return result;
+
+  const parts = address.split(',').map(part => part.trim()).filter(Boolean);
+  if (parts.length) result.address = parts[0];
+  if (parts.length > 1) result.city = parts[1];
+  if (parts.length > 2) {
+    const stateZipParts = parts[2].split(/\s+/).filter(Boolean);
+    if (stateZipParts.length) {
+      result.state = stateZipParts[0].toUpperCase();
+      if (stateZipParts.length > 1) {
+        result.zip = stateZipParts.slice(1).join(' ');
+      }
+    }
+  }
+
+  if (!result.zip) {
+    const zipMatch = address.match(/\b\d{5}(?:-\d{4})?\b/);
+    if (zipMatch) result.zip = zipMatch[0];
+  }
+
+  if (!result.city) {
+    const cityMatch = address.match(/,\s*([A-Za-z\s]+),?\s+CA/i);
+    if (cityMatch) result.city = cityMatch[1].trim();
+  }
+
+  if (!result.state && /(^|,\s*)(CA)(\s|$|\d)/i.test(address)) {
+    result.state = 'CA';
+  }
+
+  result.address = result.address || address.trim();
+  result.city = result.city || pageDefaults.city || '';
+  result.state = result.state || pageDefaults.state || '';
+  result.zip = result.zip || pageDefaults.zip || '';
+
+  return result;
+}
+
+function deriveMarketRange(value) {
+  const val = Number(value) || 0;
+  if (!val) {
+    return { direction: 'above', low: 2, high: 4 };
+  }
+  if (val >= 1500000) {
+    return { direction: 'below', low: 1, high: 4 };
+  }
+  if (val >= 900000) {
+    return { direction: 'above', low: 1, high: 3 };
+  }
+  return { direction: 'above', low: 2, high: 5 };
+}
+
+function setEstimateResult(data, parsedAddress) {
+  estimateSection.classList.remove('loading', 'error');
+  estimateStatusEl.textContent = 'Instant estimate ready — finalize below for a full CMA.';
+  const formattedValue = formatCurrency(data.estimatedValue);
+  estimateValueEl.textContent = formattedValue;
+  estimateValueTextEl.textContent = formattedValue;
+  estimateAddressEl.textContent = parsedAddress.fullText;
+  estimateAddressEl.classList.remove('muted');
+
+  const city = parsedAddress.city || pageDefaults.city || 'your area';
+  estimateCityEl.textContent = city;
+  const market = deriveMarketRange(data.estimatedValue);
+  estimateMarketEl.textContent = `Homes like yours in ${city} have been selling for ${market.low}-${market.high}% ${market.direction} this estimate.`;
+
+  lastResultAddress = normalizeAddress(parsedAddress.fullText);
+
+  if (data.beds || data.baths || data.sqft) {
+    const bits = [];
+    if (data.beds) {
+      const beds = Number(data.beds);
+      bits.push(`${Number.isFinite(beds) ? beds : data.beds} bd`);
+    }
+    if (data.baths) {
+      const baths = Number(data.baths);
+      const bathLabel = Number.isFinite(baths) ? baths.toFixed(1).replace(/\.0$/, '') : data.baths;
+      bits.push(`${bathLabel} ba`);
+    }
+    if (data.sqft) {
+      const sqft = Number(data.sqft);
+      const sqftLabel = Number.isFinite(sqft) ? sqft.toLocaleString() : data.sqft;
+      bits.push(`${sqftLabel} sqft`);
+    }
+    estimateStatusEl.textContent = `Instant estimate ready (${bits.join(' · ')}) — finalize below for a full CMA.`;
+  }
+}
+
+function setEstimateError(message, parsedAddress) {
+  estimateSection.classList.add('error');
+  estimateSection.classList.remove('loading');
+  estimateStatusEl.textContent = message || 'Instant estimate unavailable right now.';
+  if (parsedAddress?.fullText) {
+    estimateAddressEl.textContent = parsedAddress.fullText;
+    estimateAddressEl.classList.remove('muted');
+  }
+}
+
+async function getHomeValuation(addressValue) {
+  const value = (addressValue || '').trim();
+  if (!value || value.length < 6) {
+    setEstimateIdle();
+    return;
+  }
+
+  const normalized = normalizeAddress(value);
+  if (normalized === activeLookup || normalized === lastResultAddress) {
+    return;
+  }
+
+  const parsed = parseAddress(value);
+  if (!parsed.address || !parsed.city || !parsed.state) {
+    setEstimateError('Please include street, city, and state for an instant estimate.', parsed);
+    return;
+  }
+
+  activeLookup = normalized;
+  setEstimateLoading(parsed);
+
+  try {
+    const response = await fetch('/valuation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        address: parsed.address,
+        city: parsed.city,
+        state: parsed.state,
+        zip: parsed.zip
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Lookup failed');
+    }
+
+    const payload = await response.json();
+    if (!payload.estimatedValue) {
+      throw new Error('No value returned');
+    }
+
+    setEstimateResult(payload, parsed);
+  } catch (err) {
+    console.error('Instant estimate error:', err);
+    setEstimateError('Instant estimate unavailable. Submit the form for your full CMA.', parsed);
+    lastResultAddress = '';
+  } finally {
+    activeLookup = null;
+  }
+}
+
+function scheduleInstantEstimate() {
+  clearTimeout(lookupTimer);
+  const value = addressInput.value.trim();
+  if (!value || value.length < 6) {
+    setEstimateIdle();
+    return;
+  }
+  lookupTimer = setTimeout(() => getHomeValuation(value), 800);
+}
+
+estimateCtaBtn.addEventListener('click', function() {
+  document.getElementById('firstName').focus();
+  formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+addressInput.addEventListener('input', scheduleInstantEstimate);
+addressInput.addEventListener('blur', function() {
+  getHomeValuation(addressInput.value.trim());
+});
+
+setEstimateIdle();
+
+const addressParam = pageParams.get('address');
+if (addressParam) {
+  addressInput.value = addressParam;
+  getHomeValuation(addressParam);
+}
+
+window.getHomeValuation = getHomeValuation;
+</script>
+
+</body>
+</html>
